@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="icon-external" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="15px" height="15px" viewBox="-0.5 -0.5 15 15" style="enable-background:new -0.5 -0.5 15 15;"
+	 xml:space="preserve">
+<style type="text/css">
+	.icon-external__arrow-shaft {
+		stroke: #005EA5;
+		stroke-width:2;
+	}
+
+	.icon-external__arrow-head {
+		fill: #005EA5;
+	}
+
+	.icon-external__box {
+		fill: #005EA5;
+	}
+</style>
+<line class="icon-external__arrow-shaft" x1="12.621" y1="1.379" x2="4.125" y2="9.875"/>
+<polygon class="icon-external__arrow-head" points="8.414,-0.5 14.5,-0.5 14.5,5.523 "/>
+<path class="icon-external__box" d="M8.5,5.5v7h-7v-7H8.5 M10.5,3.5h-11v11h11V3.5L10.5,3.5z"/>
+</svg>

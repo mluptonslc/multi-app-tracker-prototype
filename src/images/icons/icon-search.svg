@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="40px" height="40px" viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{fill:#FFFFFF;}
+]]>
+</style>
+<g class="icon-search">
+	<rect x="20.669" y="24.17" transform="matrix(0.7071 0.7071 -0.7071 0.7071 25.1265 -9.822)" class="st0" width="7.501" height="2.5"/>
+	<path class="st0" d="M22.475,13.928c-2.635-2.635-6.909-2.635-9.545,0c-2.637,2.636-2.637,6.91-0.002,9.546
+		c2.638,2.637,6.912,2.636,9.547,0C25.11,20.839,25.111,16.565,22.475,13.928z M14.166,22.236c-1.952-1.951-1.952-5.119,0-7.071
+		c1.952-1.953,5.119-1.952,7.07,0c1.953,1.952,1.954,5.12,0.001,7.072C19.285,24.19,16.118,24.188,14.166,22.236z"/>
+</g>
+</svg>

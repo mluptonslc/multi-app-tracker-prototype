@@ -1,0 +1,65 @@
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .site-content {
+    flex: 1;
+  }
+
+  .section--header {
+    max-width: 40em;
+  }
+
+  .nav-link {
+    float: right;
+    font-size: 15px;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #0b0c0c;
+    font-weight: bold;
+  }
+
+  .categories-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .home-nav {
+    margin-bottom: 5px;
+  }
+
+  .home-nav:first-child {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  .home-nav__link {
+    font-weight: 700;
+  }
+
+  .heading--xxlarge--my-account {
+    margin-bottom: 30px !important;
+  }
+
+
+.base2-1-3 {
+  width: 100%;
+  border-top: .625rem solid #005ea5;
+  padding-top: .9375rem;
+}
+
+  @media only screen and (min-width: 600px) {
+    .mainbar {
+    float: left;
+    }
+    .base2-1-3 {
+      float: left;
+      width: 33.33333%;
+    }
+  }
+
+  .section {
+    max-width: none !important;
+  }

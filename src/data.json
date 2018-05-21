@@ -1,0 +1,170 @@
+{
+    "student": [
+        {
+            "name": "Wee Jimmy",
+            "crn": "77106863739",
+            "applications": [
+                {
+                    "name": "Mathematics",
+                    "type": "Undergraduate",
+                    "modeOfStudy": "Full-time",
+                    "academicYear": "1819",
+                    "location": "Cardiff University",
+                    "status": "incomplete",
+                    "toDoItems": [
+                        {
+                            "description": "Send us your passport details",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Send us evidence",
+                            "status": "incomplete"
+                        },
+                        {
+                            "description": "Apply for Disabled Students' Allowance",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Enter your passport details",
+                            "status": "complete"
+                        }
+                    ],
+                    "extraOptions" : [
+                        {
+                            "description" : "View Application Summary"
+                        },
+                        {
+                            "description" : "Change your application"
+                        },
+                        {
+                            "description": "Apply for additional support"
+                        },
+                        {
+                            "description": "Cancel this application"
+                        }
+                    ]
+                },
+                {
+                    "name": "History",
+                    "type": "Undergraduate",
+                    "modeOfStudy": "Part-time",
+                    "academicYear": "1819",
+                    "location": "Cardiff University",
+                    "status": "incomplete",
+                    "toDoItems": [
+                        {
+                            "description": "Send us your passport details",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Send us evidence",
+                            "status": "incomplete"
+                        },
+                        {
+                            "description": "Apply for Disabled Students' Allowance",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Enter your passport details",
+                            "status": "complete"
+                        }
+                    ],
+                    "extraOptions" : [
+                        {
+                            "description" : "View Application Summary"
+                        },
+                        {
+                            "description" : "Change your application"
+                        },
+                        {
+                            "description": "Apply for additional support"
+                        },
+                        {
+                            "description": "Cancel this application"
+                        }
+                    ]
+                },
+                {
+                    "name": "Geography",
+                    "type": "Undergraduate",
+                    "modeOfStudy": "Full-time",
+                    "academicYear": "1718",
+                    "location": "Cardiff University",
+                    "status": "complete",
+                    "toDoItems": [
+                        {
+                            "description": "Send us your passport details",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Send us evidence",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Apply for Disabled Students' Allowance",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Enter your passport details",
+                            "status": "complete"
+                        }
+                    ],
+                    "extraOptions" : [
+                        {
+                            "description" : "View Application Summary"
+                        },
+                        {
+                            "description" : "Change your application"
+                        },
+                        {
+                            "description": "Apply for additional support"
+                        },
+                        {
+                            "description": "Cancel this application"
+                        }
+                    ]
+                },
+                {
+                    "name": "History",
+                    "type": "Undergraduate",
+                    "modeOfStudy": "Part-time",
+                    "academicYear": "1718",
+                    "location": "Cardiff University",
+                    "status": "incomplete",
+                    "toDoItems": [
+                        {
+                            "description": "Send us your passport details",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Send us evidence",
+                            "status": "incomplete"
+                        },
+                        {
+                            "description": "Apply for Disabled Students' Allowance",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Enter your passport details",
+                            "status": "complete"
+                        }
+                    ],
+                    "extraOptions" : [
+                        {
+                            "description" : "View Application Summary"
+                        },
+                        {
+                            "description" : "Change your application"
+                        },
+                        {
+                            "description": "Apply for additional support"
+                        },
+                        {
+                            "description": "Cancel this application"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
