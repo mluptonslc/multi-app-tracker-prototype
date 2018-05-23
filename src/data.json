@@ -1,7 +1,7 @@
 {
     "student": [
         {
-            "name": "Wee Jimmy",
+            "name": "Big Jimmy",
             "crn": "77106863739",
             "applications": [
                 {
@@ -130,6 +130,82 @@
                     "modeOfStudy": "Part-time",
                     "academicYear": "1718",
                     "location": "Cardiff University",
+                    "status": "incomplete",
+                    "toDoItems": [
+                        {
+                            "description": "Send us your passport details",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Send us evidence",
+                            "status": "incomplete"
+                        },
+                        {
+                            "description": "Apply for Disabled Students' Allowance",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Enter your passport details",
+                            "status": "complete"
+                        }
+                    ],
+                    "extraOptions" : [
+                        {
+                            "description" : "View Application Summary"
+                        },
+                        {
+                            "description" : "Change your application"
+                        },
+                        {
+                            "description": "Apply for additional support"
+                        },
+                        {
+                            "description": "Cancel this application"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mathematics",
+                    "type": "FE",
+                    "location": "Cardiff University",
+                    "status": "incomplete",
+                    "toDoItems": [
+                        {
+                            "description": "Send us your passport details",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Send us evidence",
+                            "status": "incomplete"
+                        },
+                        {
+                            "description": "Apply for Disabled Students' Allowance",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Enter your passport details",
+                            "status": "complete"
+                        }
+                    ],
+                    "extraOptions" : [
+                        {
+                            "description" : "View Application Summary"
+                        },
+                        {
+                            "description" : "Change your application"
+                        },
+                        {
+                            "description": "Apply for additional support"
+                        },
+                        {
+                            "description": "Cancel this application"
+                        }
+                    ]
+                },
+                
+                {
+                    "name": "Wee Jimmy",
+                    "type": "sponsor",
                     "status": "incomplete",
                     "toDoItems": [
                         {
