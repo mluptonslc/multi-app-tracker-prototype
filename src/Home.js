@@ -81,6 +81,12 @@ class Home extends Component {
           <main id="content" role="main" className="site-content">
             <div className="container">
               <h2 className="heading--xxlarge--my-account heading--xxlarge">{data.student[0].name}'s Account</h2>
+              <h3 className="heading--xsmall" style={{marginBottom: '50px'}}>
+              <div style={{display: 'inline-block'}}>
+              <span>Your Customer Reference Number (CRN) : </span>
+              <span>20124471022</span>
+              </div>
+              </h3>
               <div className="base-2-3 mainbar">
                 <ol className="categories-list">
                   <li>

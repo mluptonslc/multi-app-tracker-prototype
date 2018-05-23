@@ -44,9 +44,12 @@
   }
 
 
+.border-top {
+  border-top: .625rem solid #005ea5;
+}
+
 .base2-1-3 {
   width: 100%;
-  border-top: .625rem solid #005ea5;
   padding-top: .9375rem;
 }
 
@@ -66,4 +69,11 @@
 
   .background-black {
     background-color: black !important;
+  }
+
+  .background-blue {
+    padding: 5px;
+    background-color: #005ea5;
+    font-weight: 800;
+    color: white;
   }
