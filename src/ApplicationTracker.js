@@ -46,6 +46,13 @@ class ApplicationTracker extends Component {
   getApplicationStatus(application) {
     let applicationStatus = application.status;
     let statusClass = applicationStatus === 'complete' ? 'section__status_completed' : 'section__status_incomplete';
+    if(applicationStatus === 'complete') {
+      statusClass = 'section__status_completed';
+    } else  if (applicationStatus === 'incomplete') {
+      statusClass = 'section__status_incomplete';
+    } else {
+      statusClass = 'background-black section__status_incomplete'
+    }
     return <span className={statusClass}>{application.status}</span>
   }
 

@@ -63,3 +63,7 @@
   .section {
     max-width: none !important;
   }
+
+  .background-black {
+    background-color: black !important;
+  }
