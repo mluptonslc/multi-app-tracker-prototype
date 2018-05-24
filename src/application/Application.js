@@ -73,25 +73,33 @@ class Application extends Component {
 
           <main id="content" role="main" className="site-content">
             <div className="container">
-              <section className="section">
+              <div className="content">
                 <h3 className="heading--xxlarge">{this.state.application.modeOfStudy} {this.state.application.type} {this.state.application.name}</h3>
-                <ul className="section__list">
-                  {this.getToDoItems()}
-                </ul>
-              </section>
-              <section className="section">
-                <div className="content">
-                  <h3>Help us improve our online service</h3>
-                  <a href="feedback">Tell us what you think of this service</a>
-                </div>
-              </section>
-              <section>
-                <div className="content">
-                  <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
-                    {this.getExtraOptions()}
+              </div>
+              <div className="base2-2-3 mainbar">
+                <section>
+                  <ul className="section__list">
+                    {this.getToDoItems()}
                   </ul>
+                </section>
+              </div>
+              <div className="base2-1-3">
+                <div className="sidebar">
+                <section className="section" style={{marginBottom: '15px'}}>
+                  <div className="content">
+                    <ul style={{ listStyle: 'none', paddingLeft: 0, marginTop: '15px'}}>
+                      {this.getExtraOptions()}
+                    </ul>
+                  </div>
+                </section>
+                <section>
+                  <div className="content">
+                    <h3>Help us improve our online service</h3>
+                    <a href="feedback">Tell us what you think of this service</a>
+                  </div>
+                </section>
                 </div>
-              </section>
+              </div>
             </div>
           </main>
           <footer className="page-footer" role="contentinfo">

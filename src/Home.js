@@ -91,27 +91,29 @@ class Home extends Component {
                 <ol className="categories-list">
                   <li>
                     <h3 className="home-nav">
-                      <Link to="/application-tracker" className="home-nav-link action--secondary">My applications</Link>
+                      <Link to="/application-tracker" className="home-nav-link action--secondary">Applications and Support</Link>
                     </h3>
-                    <p>Check the current status or make changes to your application</p>
+                    <p>Manage your applications and your support applications</p>
                   </li>
                   <li>
-                    <h3 className="home-nav"><a href="location" className="home-nav-link action--secondary">My profile</a></h3>
+                    <h3 className="home-nav"><a href="location" className="home-nav-link action--secondary">My Profile</a></h3>
                     <p>Update your personal details or change your password</p>
                   </li>
                   <li>
-                    <h3 className="home-nav"><a href="location" className="home-nav-link action--secondary">My finance</a></h3>
+                    <h3 className="home-nav"><a href="location" className="home-nav-link action--secondary">Payments and Finance</a></h3>
                     <p>Check when you'll next be paid, your past payments or update your bank details</p>
                   </li>
                   <li>
-                    <h3 className="home-nav"><a href="location" className="home-nav-link action--secondary">My letters and emails</a></h3>
+                    <h3 className="home-nav"><a href="location" className="home-nav-link action--secondary">Letters and emails</a></h3>
                     <p>View all letters and emails that have been sent to you by the Student Loans Company</p>
                   </li>
                 </ol>
               </div>
-              <div className="base2-1-3 sidebar">
-                <h3 className="heading--small"><a href="new-app">Start a new application</a></h3>
-                <h3 className="heading--small"><a href="new-app">Support a student's application</a></h3>
+              <div className="base2-1-3">
+                <div className="sidebar">
+                  <h3 className="heading--small"><a href="new-app">Start a new application</a></h3>
+                  <h3 className="heading--small"><a href="new-app">Support a student's application</a></h3>
+                </div>
               </div>
             </div>
           </main>

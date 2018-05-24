@@ -11,6 +11,7 @@
                     "academicYear": "1819",
                     "location": "Cardiff University",
                     "status": "incomplete",
+                    "lastUpdated": "8 May 2018",
                     "toDoItems": [
                         {
                             "description": "Send us your passport details",
@@ -51,6 +52,7 @@
                     "academicYear": "1819",
                     "location": "Cardiff University",
                     "status": "cancelled",
+                    "lastUpdated": "8 April 2018",
                     "toDoItems": [
                         {
                             "description": "Send us your passport details",
@@ -91,6 +93,48 @@
                     "academicYear": "1718",
                     "location": "Cardiff University",
                     "status": "complete",
+                    "lastUpdated": "2 July 2017",
+                    "toDoItems": [
+                        {
+                            "description": "Send us your passport details",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Send us evidence",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Apply for Disabled Students' Allowance",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Enter your passport details",
+                            "status": "complete"
+                        }
+                    ],
+                    "extraOptions" : [
+                        {
+                            "description" : "View Application Summary"
+                        },
+                        {
+                            "description" : "Change your application"
+                        },
+                        {
+                            "description": "Apply for additional support"
+                        },
+                        {
+                            "description": "Cancel this application"
+                        }
+                    ]
+                },
+                {
+                    "name": "Geography",
+                    "type": "Postgraduate",
+                    "modeOfStudy": "Full-time",
+                    "academicYear": "1718",
+                    "location": "Cardiff University",
+                    "status": "complete",
+                    "lastUpdated": "4 April 2017",
                     "toDoItems": [
                         {
                             "description": "Send us your passport details",
@@ -131,6 +175,7 @@
                     "academicYear": "1718",
                     "location": "Cardiff University",
                     "status": "incomplete",
+                    "lastUpdated": "2 July 2017",
                     "toDoItems": [
                         {
                             "description": "Send us your passport details",
@@ -169,6 +214,7 @@
                     "type": "FE",
                     "location": "Cardiff College",
                     "status": "incomplete",
+                    "lastUpdated": "8 July 2016",
                     "toDoItems": [
                         {
                             "description": "Send us your passport details",
@@ -207,6 +253,7 @@
                     "name": "Wee Jimmy",
                     "type": "sponsor",
                     "status": "incomplete",
+                    "lastUpdated": "8 May 2018",
                     "toDoItems": [
                         {
                             "description": "Send us your passport details",

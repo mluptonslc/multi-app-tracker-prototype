@@ -15,8 +15,21 @@ class ApplicationTracker extends Component {
     this.getMain = this.getMain.bind(this);
   }
 
-  getApplicationsForYear(academicYear) {
+  getUndergradApplications() {
     return data.student[0].applications.filter(application =>
+      application.type.toLowerCase() === 'undergraduate'
+    );
+  }
+
+  
+  getPostgradApplications() {
+    return data.student[0].applications.filter(application =>
+      application.type.toLowerCase() === 'postgraduate'
+    );
+  }
+
+  getApplicationsForYear(applications, academicYear) {
+    return applications.filter(application =>
       application.academicYear === academicYear
     );
   }
@@ -70,6 +83,7 @@ class ApplicationTracker extends Component {
           </Link>
         </h3>
         <h3 className="section__label" style={{ clear: 'left' }}>{application.location}</h3>
+        <h3 className="section__label" style={{ clear: 'left' }}>Last updated: {application.lastUpdated}</h3>
         {this.getApplicationStatus(application)}
       </li>
     )
@@ -89,6 +103,7 @@ class ApplicationTracker extends Component {
           </Link>
         </h3>
         <h3 className="section__label" style={{ clear: 'left' }}>{application.location}</h3>
+        <h3 className="section__label" style={{ clear: 'left' }}>Last updated: {application.lastUpdated}</h3>
         {this.getApplicationStatus(application)}
       </li>
     )
@@ -131,21 +146,30 @@ class ApplicationTracker extends Component {
       main = (
         <main id="content" role="main" className="site-content">
           <div className="container">
-            <h2 className="heading--xxlarge">My Applications</h2>
+            <h2 className="heading--xxlarge">Applications</h2>
             <section className="section">
-              <h3 className="heading--large">Applications for Academic Year 2018 to 2019</h3>
+              <h3 className="heading--large">Postgraduate</h3>
               <ul className="section__list">
-                {this.getApplicationHeaders(this.getApplicationsForYear("1819"))}
+                {this.getApplicationHeaders(this.getPostgradApplications())}
               </ul>
             </section>
             <section className="section">
-              <h3 className="heading--large">Applications for Academic Year 2017 to 2018</h3>
-              <ul className="section__list">
-                {this.getApplicationHeaders(this.getApplicationsForYear("1718"))}
-              </ul>
+            <h3 className="heading--large">Undergraduate</h3>
+              <section className="section--no-border">
+                <h4 className="heading">Academic Year 2018 to 2019</h4>
+                <ul className="section__list">
+                  {this.getApplicationHeaders(this.getApplicationsForYear(this.getUndergradApplications(), "1819"))}
+                </ul>
+              </section>
+              <section>
+                <h4 className="heading">Academic Year 2017 to 2018</h4>
+                <ul className="section__list">
+                  {this.getApplicationHeaders(this.getApplicationsForYear(this.getUndergradApplications(), "1718"))}
+                </ul>
+              </section>
             </section>
             <section className="section">
-              <h3 className="heading--large">Further Education Applications</h3>
+              <h3 className="heading--large">Further Education</h3>
               <ul className="section__list">
                 {this.getApplicationHeaders(this.getFEApplications())}
               </ul>

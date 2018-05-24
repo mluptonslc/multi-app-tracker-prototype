@@ -50,7 +50,6 @@
 
 .base2-1-3 {
   width: 100%;
-  padding-top: .9375rem;
 }
 
   @media only screen and (min-width: 600px) {
@@ -60,11 +59,20 @@
     .base2-1-3 {
       float: left;
       width: 33.33333%;
+      padding-left: 30px;
+    }
+    .base2-2-3 {
+      width: 66.66666%;
+      padding-right: 30px;
     }
   }
 
   .section {
     max-width: none !important;
+  }
+
+  .section--no-border {
+    margin-bottom: 3.75rem;
   }
 
   .background-black {
@@ -76,4 +84,8 @@
     background-color: #005ea5;
     font-weight: 800;
     color: white;
+  }
+
+  .container {
+    max-width: 960px !important;
   }
