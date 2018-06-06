@@ -289,5 +289,8 @@
                 }
             ]
         }
-    ]
+    ],
+    "pages": {
+        "profile": "My Profile"
+    }
 }

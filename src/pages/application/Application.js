@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 
 class Application extends Component {
 
@@ -47,32 +49,22 @@ class Application extends Component {
     return (
       <React.Fragment>
         <div className="site">
-          <header id="page-header" role="banner">
-            <a id="header-skip-link" href="#content" className="keyboard-link">Skip to main content</a>
-            <div className="page-header">
-              <div className="container">
-                <div className="page-header__inner row">
-                  <div className="page-header__title">
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.gov.uk" className="page-header__title-content">GOV.UK</a>
-                  </div>
-                  <h1 className="page-header__content">Student Finance application</h1>
-                </div>
-              </div>
-            </div>
-            <div className="container">
-              <div className="base-1-3" style={{ float: 'left' }}>
-                <img src={require('../images/template/sfe-logo.svg')} alt="Student Finance England"
-                  className="secondary-logo" />
-              </div>
-              <div className="base-2-3" style={{ float: 'left' }}>
-                <a className="nav-link">Logout</a>
-                <Link to="home" className="nav-link">My Account</Link>
-              </div>
-            </div>
-          </header>
-
+          <Header />
           <main id="content" role="main" className="site-content">
             <div className="container">
+              <div className="breadcrumb">
+                <ol className="breadcrumb__list">
+                  <li className="breadcrumb__list__item">
+                    <Link to="home">home</Link>
+                  </li>
+                  <li className="breadcrumb__list__item">
+                    <Link to="application-tracker">applications</Link>
+                  </li>
+                  <li className="breadcrumb__list__item">
+                    application
+                  </li>
+                </ol>
+              </div>
               <div className="content">
                 <h3 className="heading--xxlarge">{this.state.application.modeOfStudy} {this.state.application.type} {this.state.application.name}</h3>
               </div>
@@ -102,38 +94,7 @@ class Application extends Component {
               </div>
             </div>
           </main>
-          <footer className="page-footer" role="contentinfo">
-            <div className="container">
-              <div className="page-footer__inner">
-                <div className="footer-navigation">
-                  <h2 className="visually-hidden">Navigation Links</h2>
-                  <ul className="footer-navigation__list">
-                    <li>
-                      <a href="cookies">Cookies</a>
-                    </li>
-                    <li>
-                      <a href="e-privacy">e-Privacy</a>
-                    </li>
-                    <li>
-                      <a href="termsofuse">Terms of use</a>
-                    </li>
-                    <li>
-                      <a href="security">Security</a>
-                    </li>
-                    <li>
-                      <a href="accessibility">Accessibility</a>
-                    </li>
-                  </ul>
-                  <p className="developer-credit">Built by
-              <a href="http://www.slc.co.uk" target="_blank" rel="noopener noreferrer">Student Loans Company</a>
-                  </p>
-                </div>
-                <div className="page-footer__service">
-                  <a className="crown-copyright" target="_blank" rel="noopener noreferrer" href="http://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">@Crown Copyright</a>
-                </div>
-              </div>
-            </div>
-          </footer>
+          <Footer />
         </div>
       </React.Fragment>
     );
