@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import data from '../../data.json';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { CustomerContext } from '../../context/CustomerContext';
 
 class ApplicationTracker extends Component {
 
@@ -14,17 +15,24 @@ class ApplicationTracker extends Component {
       noApps: false
     }
     this.getMain = this.getMain.bind(this);
+    this.getPageHeader = this.getPageHeader.bind(this);
+    this.getUndergradApplications = this.getUndergradApplications.bind(this);
+    this.getPostgradApplications = this.getPostgradApplications.bind(this);
+    this.getFEApplications = this.getFEApplications.bind(this);
+    this.getApplicationHeader = this.getApplicationHeader.bind(this);
+    this.getApplicationHeaders = this.getApplicationHeaders.bind(this);
+    this.getApplicationStatus = this.getApplicationStatus.bind(this);
+    this.getApplicationSection = this.getApplicationSection.bind(this);
   }
 
-  getUndergradApplications() {
-    return data.student[0].applications.filter(application =>
+  getUndergradApplications(studentIndex) {
+    return data.student[studentIndex].applications.filter(application =>
       application.type.toLowerCase() === 'undergraduate'
     );
   }
 
-
-  getPostgradApplications() {
-    return data.student[0].applications.filter(application =>
+  getPostgradApplications(studentIndex) {
+    return data.student[studentIndex].applications.filter(application =>
       application.type.toLowerCase() === 'postgraduate'
     );
   }
@@ -35,15 +43,9 @@ class ApplicationTracker extends Component {
     );
   }
 
-  getFEApplications() {
-    return data.student[0].applications.filter(application =>
-      application.type === 'FE'
-    );
-  }
-
-  getSponsees() {
-    return data.student[0].applications.filter(application =>
-      application.type === 'sponsor'
+  getFEApplications(studentIndex) {
+    return data.student[studentIndex].applications.filter(application =>
+      application.type.toLowerCase() === 'fe'
     );
   }
 
@@ -52,9 +54,24 @@ class ApplicationTracker extends Component {
       this.getApplicationHeader(application, key))
   }
 
-  getSponsorApplicationHeaders(applications) {
-    return applications.map((application, key) =>
-      this.getSponsorApplicationHeader(application, key))
+  getApplicationHeader(application, key) {
+    return (
+      <li key={key} className="section__row">
+        <h3 className="section__label">
+          <Link to={{
+            pathname: '/page3',
+            state: { application: application }
+          }}
+            className="section__label action--secondary"
+            style={{ textDecoration: 'none' }}>
+            {application.modeOfStudy} {application.type} {application.name}
+          </Link>
+        </h3>
+        <h3 className="section__label" style={{ clear: 'left', fontWeight: 'normal' }}>{application.location}</h3>
+        <h3 className="section__label" style={{ clear: 'left', fontWeight: 'normal' }}>Last updated: {application.lastUpdated}</h3>
+        {this.getApplicationStatus(application)}
+      </li>
+    )
   }
 
   getApplicationStatus(application) {
@@ -70,44 +87,33 @@ class ApplicationTracker extends Component {
     return <span className={statusClass}>{application.status.toUpperCase()}</span>
   }
 
-  getApplicationHeader(application, key) {
-    return (
-      <li key={key} className="section__row">
-        <h3 className="section__label">
-          <Link to={{
-            pathname: '/application',
-            state: { application: application }
-          }}
-            className="section__label action--secondary"
-            style={{ textDecoration: 'none' }}>
-            {application.modeOfStudy} {application.type} {application.name}
-          </Link>
-        </h3>
-        <h3 className="section__label" style={{ clear: 'left' }}>{application.location}</h3>
-        <h3 className="section__label" style={{ clear: 'left' }}>Last updated: {application.lastUpdated}</h3>
-        {this.getApplicationStatus(application)}
-      </li>
-    )
+  getApplicationSection(applications, header, subsection) {
+
+    let section;
+    let sectionClass = 'section'
+    if(subsection && subsection === true) sectionClass = 'section--no-border'
+
+    if(applications !== undefined && applications.length > 0) {
+      section = (
+        <section className={sectionClass}>
+          <h4 className="heading">{header}</h4>
+          <ul className="section__list">
+            {this.getApplicationHeaders(applications)}
+          </ul>
+        </section>
+      )
+    }
+    return section;
   }
 
-  getSponsorApplicationHeader(application, key) {
-    return (
-      <li key={key} className="section__row">
-        <h3 className="section__label">
-          <Link to={{
-            pathname: '/application',
-            state: { application: application }
-          }}
-            className="section__label action--secondary"
-            style={{ textDecoration: 'none' }}>
-            {application.name}
-          </Link>
-        </h3>
-        <h3 className="section__label" style={{ clear: 'left' }}>{application.location}</h3>
-        <h3 className="section__label" style={{ clear: 'left' }}>Last updated: {application.lastUpdated}</h3>
-        {this.getApplicationStatus(application)}
-      </li>
-    )
+  getPageHeader(page, showTitle) {
+    let header;
+    if (showTitle) {
+      header = data.pages[page];
+    } else {
+      header = 'Page Title'
+    }
+    return header
   }
 
   getMain() {
@@ -116,12 +122,11 @@ class ApplicationTracker extends Component {
       main = (
         <main id="content" role="main" className="site-content">
           <div className="container">
-            <Link to="/home" className="back-link" style={{ marginTop: '30px' }}>Back</Link>
-            <h2 className="heading--xlarge">You have no active applications</h2>
+            <Link to="/page1" className="back-link" style={{ marginTop: '30px' }}>Back</Link>
             <form>
               <div className="content">
                 <fieldset className="radio">
-                  <legend className="radio__legend">Would you like to apply for student finance or support another student's application?</legend>
+                  <legend className="heading--xlarge">Would you like to apply for student finance or support another student's application?</legend>
                   <div className="radio__group">
                     <input className="radio__input" id="apply" type="radio" name="appType" value="apply" />
                     <label htmlFor="apply" className="radio__label">
@@ -145,71 +150,47 @@ class ApplicationTracker extends Component {
       )
     } else {
       main = (
-        <main id="content" role="main" className="site-content">
-          <div className="container">
-            <div className="breadcrumb">
-              <ol className="breadcrumb__list">
-                <li className="breadcrumb__list__item">
-                  <Link to="home">home</Link>
-                </li>
-                <li className="breadcrumb__list__item">
-                  applications
-                </li>
-              </ol>
-            </div>
-            <h2 className="heading--xxlarge">Applications</h2>
-            <div className="base2-2-3 mainbar">
-              <section className="section">
-                <h3 className="heading--large">Postgraduate</h3>
-                <ul className="section__list">
-                  {this.getApplicationHeaders(this.getPostgradApplications())}
-                </ul>
-              </section>
-              <section className="section">
-                <h3 className="heading--large">Undergraduate</h3>
-                <section className="section--no-border">
-                  <h4 className="heading">Academic Year 2018 to 2019</h4>
-                  <ul className="section__list">
-                    {this.getApplicationHeaders(this.getApplicationsForYear(this.getUndergradApplications(), "1819"))}
-                  </ul>
-                </section>
-                <section>
-                  <h4 className="heading">Academic Year 2017 to 2018</h4>
-                  <ul className="section__list">
-                    {this.getApplicationHeaders(this.getApplicationsForYear(this.getUndergradApplications(), "1718"))}
-                  </ul>
-                </section>
-              </section>
-              <section className="section">
-                <h3 className="heading--large">Further Education</h3>
-                <ul className="section__list">
-                  {this.getApplicationHeaders(this.getFEApplications())}
-                </ul>
-              </section>
-              <section className="section">
-                <h3 className="heading--large">Students who's applications you are supporting</h3>
-                <ul className="section__list">
-                  {this.getSponsorApplicationHeaders(this.getSponsees())}
-                </ul>
-              </section>
-              <button type="button" onClick={() => { this.toggleApps() }}>Toggle Apps on/off</button>
-            </div>
-            <div className="base-1-3 column">
-              <div className="sidebar">
-                <ol className="categories-list content">
+        <CustomerContext.Consumer>
+          {({ activeCustomer, showHeaders }) => (
+            <main id="content" role="main" className="site-content">
+              <div className="container">
+                <ol className="breadcrumbs" style={{ marginBottom: '30px' }}>
                   <li>
-                    <h3 className="home-nav"><a href="new-app">Start a new application</a></h3>
-                    <p>Begin a new student finance application to help fund your studies</p>
+                    <Link to="page1">{this.getPageHeader('home', showHeaders)}</Link>
                   </li>
                   <li>
-                    <h3 className="home-nav"><a href="new-app">Support an application</a></h3>
-                    <p>Provide details to support a student who is applying for student finance</p>
-                  </li>
+                    {this.getPageHeader('applicationTracker', showHeaders)}
+                </li>
                 </ol>
+                <h2 className="heading--xxlarge">{this.getPageHeader('applicationTracker', showHeaders)}</h2>
+                <div className="base2-2-3 mainbar">
+                  {this.getApplicationSection(this.getPostgradApplications(activeCustomer), 'Postgraduate')}
+                  <section className="section">
+                    <h3 className="heading--large">Undergraduate</h3>
+                    {this.getApplicationSection(this.getApplicationsForYear(this.getUndergradApplications(activeCustomer), "1819"), 'Academic Year 2018 to 2019', true)}
+                    {this.getApplicationSection(this.getApplicationsForYear(this.getUndergradApplications(activeCustomer), "1718"), 'Academic Year 2017 to 2018', true)}
+                  </section>
+                  {this.getApplicationSection(this.getFEApplications(activeCustomer), 'Further Education')}
+                  <button type="button" onClick={() => { this.toggleApps() }}>Toggle Apps on/off</button>
+                </div>
+                <div className="base2-1-3">
+                  <div className="sidebar">
+                    <ol className="categories-list content">
+                      <li>
+                        <h3 className="home-nav"><a href="new-app">Start a new application</a></h3>
+                        <p>Begin a new student finance application to help fund your studies</p>
+                      </li>
+                      <li>
+                        <h3 className="home-nav"><a href="new-app">Support an application</a></h3>
+                        <p>Provide details to support a student who is applying for student finance</p>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </main>
+            </main>
+          )}
+        </CustomerContext.Consumer>
       )
     }
 

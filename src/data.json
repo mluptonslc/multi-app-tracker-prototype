@@ -1,8 +1,16 @@
 {
     "student": [
         {
-            "name": "Big Jimmy",
+            "name": "John",
             "crn": "77106863739",
+            "email":"john123@slc.co.com",
+            "homeTelephone":"0123 456 7890",
+            "mobileTelephone":"Not provided",
+            "homeAddress":"100 Somewhere, Glasgow, G1 111",
+            "contactAddress":"100 Somewhere Else, Glasgow, G1 222",
+            "braile": "Not required",
+            "password": "**********",
+            "secret": "**********",
             "applications": [
                 {
                     "name": "Mathematics",
@@ -23,10 +31,6 @@
                         },
                         {
                             "description": "Apply for Disabled Students' Allowance",
-                            "status": "complete"
-                        },
-                        {
-                            "description": "Enter your passport details",
                             "status": "complete"
                         }
                     ],
@@ -65,10 +69,6 @@
                         {
                             "description": "Apply for Disabled Students' Allowance",
                             "status": "complete"
-                        },
-                        {
-                            "description": "Enter your passport details",
-                            "status": "complete"
                         }
                     ],
                     "extraOptions" : [
@@ -105,10 +105,6 @@
                         },
                         {
                             "description": "Apply for Disabled Students' Allowance",
-                            "status": "complete"
-                        },
-                        {
-                            "description": "Enter your passport details",
                             "status": "complete"
                         }
                     ],
@@ -147,10 +143,6 @@
                         {
                             "description": "Apply for Disabled Students' Allowance",
                             "status": "complete"
-                        },
-                        {
-                            "description": "Enter your passport details",
-                            "status": "complete"
                         }
                     ],
                     "extraOptions" : [
@@ -188,10 +180,6 @@
                         {
                             "description": "Apply for Disabled Students' Allowance",
                             "status": "complete"
-                        },
-                        {
-                            "description": "Enter your passport details",
-                            "status": "complete"
                         }
                     ],
                     "extraOptions" : [
@@ -227,9 +215,56 @@
                         {
                             "description": "Apply for Disabled Students' Allowance",
                             "status": "complete"
+                        }
+                    ],
+                    "extraOptions" : [
+                        {
+                            "description" : "View Application Summary"
                         },
                         {
-                            "description": "Enter your passport details",
+                            "description" : "Change your application"
+                        },
+                        {
+                            "description": "Apply for additional support"
+                        },
+                        {
+                            "description": "Cancel this application"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Jane",
+            "crn": "77106863739",
+            "email":"jane123@slc.co.uk",
+            "homeTelephone":"0123 456 7890",
+            "mobileTelephone":"Not provided",
+            "homeAddress":"100 Somewhere, Glasgow, G1 111",
+            "contactAddress":"100 Somewhere Else, Glasgow, G1 222",
+            "braile": "Not required",
+            "password": "**********",
+            "secret": "**********",
+            "applications": [
+                {
+                    "name": "Mathematics",
+                    "type": "Undergraduate",
+                    "modeOfStudy": "Full-time",
+                    "academicYear": "1819",
+                    "location": "Cardiff University",
+                    "status": "incomplete",
+                    "lastUpdated": "8 May 2018",
+                    "toDoItems": [
+                        {
+                            "description": "Send us your passport details",
+                            "status": "complete"
+                        },
+                        {
+                            "description": "Send us evidence",
+                            "status": "incomplete"
+                        },
+                        {
+                            "description": "Apply for Disabled Students' Allowance",
                             "status": "complete"
                         }
                     ],
@@ -248,12 +283,14 @@
                         }
                     ]
                 },
-                
                 {
-                    "name": "Wee Jimmy",
-                    "type": "sponsor",
-                    "status": "incomplete",
-                    "lastUpdated": "8 May 2018",
+                    "name": "History",
+                    "type": "Undergraduate",
+                    "modeOfStudy": "Part-time",
+                    "academicYear": "1819",
+                    "location": "Cardiff University",
+                    "status": "cancelled",
+                    "lastUpdated": "8 April 2018",
                     "toDoItems": [
                         {
                             "description": "Send us your passport details",
@@ -265,10 +302,6 @@
                         },
                         {
                             "description": "Apply for Disabled Students' Allowance",
-                            "status": "complete"
-                        },
-                        {
-                            "description": "Enter your passport details",
                             "status": "complete"
                         }
                     ],
@@ -291,6 +324,9 @@
         }
     ],
     "pages": {
-        "profile": "My Profile"
+        "home": "Home",
+        "profile": "Your Profile",
+        "applicationTracker": "Applications",
+        "application": "Your Profile"
     }
 }

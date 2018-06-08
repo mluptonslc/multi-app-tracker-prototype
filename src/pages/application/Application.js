@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+
+import data from '../../data.json';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import { CustomerContext } from '../../context/CustomerContext';
 
 class Application extends Component {
 
@@ -15,6 +18,7 @@ class Application extends Component {
     this.getToDoItems = this.getToDoItems.bind(this);
     this.getToDoItemStatus = this.getToDoItemStatus.bind(this);
     this.getExtraOptions = this.getExtraOptions.bind(this);
+    this.getPageHeader = this.getPageHeader.bind(this);
   }
 
   getToDoItems() {
@@ -32,71 +36,86 @@ class Application extends Component {
     })
   }
 
-  getExtraOptions() {
-    return this.state.application.extraOptions.map((option, index) => {
-      return <li className="action--secondary"><a className="action--secondary">{option.description}</a></li>
-    })
+  getExtraOptions(showHeaders) {
+    if (showHeaders) {
+      return this.state.application.extraOptions.map((option, index) => {
+        return <li className="action--secondary"><a className="action--secondary">{option.description}</a></li>
+      })
+    } else {
+      return this.state.application.extraOptions.map((option, index) => {
+        return <li className="action--secondary"><a className="action--secondary">Action link {index+1}</a></li>
+      }) 
+    }
   }
 
   getToDoItemStatus(toDoItem) {
     let toDoItemStatus = toDoItem.status;
     let statusClass = toDoItemStatus === 'complete' ? 'section__status_completed' : 'section__status_incomplete';
-    return <span className={statusClass}>{toDoItemStatus}</span>
+    return <span className={statusClass}>{toDoItemStatus.toUpperCase()}</span>
   }
 
+  getPageHeader(page, showTitle) {
+    let header;
+    if (showTitle) {
+      header = data.pages[page];
+    } else {
+      header = 'Page Title'
+    }
+    return header
+  }
 
   render() {
     return (
-      <React.Fragment>
-        <div className="site">
-          <Header />
-          <main id="content" role="main" className="site-content">
-            <div className="container">
-              <div className="breadcrumb">
-                <ol className="breadcrumb__list">
-                  <li className="breadcrumb__list__item">
-                    <Link to="home">home</Link>
+      <CustomerContext.Consumer>
+        {({ activeCustomer, showHeaders }) => (
+          <div className="site">
+            <Header />
+            <main id="content" role="main" className="site-content">
+              <div className="container">
+                <ol className="breadcrumbs" style={{ marginBottom: '30px' }}>
+                  <li>
+                    <Link to="page1">{this.getPageHeader('home', showHeaders)}</Link>
                   </li>
-                  <li className="breadcrumb__list__item">
-                    <Link to="application-tracker">applications</Link>
+                  <li>
+                    <Link to="page2">{this.getPageHeader('applicationTracker', showHeaders)}</Link>
                   </li>
-                  <li className="breadcrumb__list__item">
-                    application
+                  <li>
+                    {this.getPageHeader('application', showHeaders)}
                   </li>
                 </ol>
-              </div>
-              <div className="content">
-                <h3 className="heading--xxlarge">{this.state.application.modeOfStudy} {this.state.application.type} {this.state.application.name}</h3>
-              </div>
-              <div className="base2-2-3 mainbar">
-                <section>
-                  <ul className="section__list">
-                    {this.getToDoItems()}
-                  </ul>
-                </section>
-              </div>
-              <div className="base2-1-3">
-                <div className="sidebar">
-                <section className="section" style={{marginBottom: '15px'}}>
-                  <div className="content">
-                    <ul style={{ listStyle: 'none', paddingLeft: 0, marginTop: '15px'}}>
-                      {this.getExtraOptions()}
+                <div className="content">
+                  <h2 className="heading--xxlarge">{this.state.application.modeOfStudy} {this.state.application.type} {this.state.application.name}</h2>
+                </div>
+                <div className="base2-2-3 mainbar">
+                  <section>
+                    <ul className="section__list">
+                      {this.getToDoItems()}
                     </ul>
+                  </section>
+                </div>
+                <div className="base2-1-3">
+                  <div className="sidebar">
+                    <section className="section" style={{ marginBottom: '15px' }}>
+                      <div className="content">
+                        <ul style={{ listStyle: 'none', paddingLeft: 0, marginTop: '15px' }}>
+                          {this.getExtraOptions(showHeaders)}
+                        </ul>
+                      </div>
+                    </section>
+                    <section>
+                      <div className="content">
+                        <h3>Help us improve our online service</h3>
+                        <a href="feedback">Tell us what you think of this service</a>
+                      </div>
+                    </section>
                   </div>
-                </section>
-                <section>
-                  <div className="content">
-                    <h3>Help us improve our online service</h3>
-                    <a href="feedback">Tell us what you think of this service</a>
-                  </div>
-                </section>
                 </div>
               </div>
-            </div>
-          </main>
-          <Footer />
-        </div>
-      </React.Fragment>
+            </main>
+            <Footer />
+          </div>
+        )}
+      </CustomerContext.Consumer>
     );
   }
 }
