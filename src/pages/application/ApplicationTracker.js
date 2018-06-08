@@ -91,9 +91,9 @@ class ApplicationTracker extends Component {
 
     let section;
     let sectionClass = 'section'
-    if(subsection && subsection === true) sectionClass = 'section--no-border'
+    if (subsection && subsection === true) sectionClass = 'section--no-border'
 
-    if(applications !== undefined && applications.length > 0) {
+    if (applications !== undefined && applications.length > 0) {
       section = (
         <section className={sectionClass}>
           <h4 className="heading">{header}</h4>
@@ -131,13 +131,13 @@ class ApplicationTracker extends Component {
                     <input className="radio__input" id="apply" type="radio" name="appType" value="apply" />
                     <label htmlFor="apply" className="radio__label">
                       Apply for student finance
-            </label>
+                    </label>
                   </div>
                   <div className="radio__group">
                     <input className="radio__input" id="support" type="radio" name="appType" value="support" />
                     <label htmlFor="support" className="radio__label">
                       Support a student's application
-            </label>
+                     </label>
                   </div>
                 </fieldset>
               </div>
@@ -160,7 +160,7 @@ class ApplicationTracker extends Component {
                   </li>
                   <li>
                     {this.getPageHeader('applicationTracker', showHeaders)}
-                </li>
+                  </li>
                 </ol>
                 <h2 className="heading--xxlarge">{this.getPageHeader('applicationTracker', showHeaders)}</h2>
                 <div className="base2-2-3 mainbar">

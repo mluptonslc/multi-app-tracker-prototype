@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 import '../../index.css'
+import data from '../../data.json';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { CustomerContext } from '../../context/CustomerContext';
@@ -10,22 +12,19 @@ class Setup extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            customer: {
-                name: 'Test'
-            },
-            updateDetails: this.updateDetails
-        }
-
-        this.setName = this.setName.bind(this)
+        this.getToggleState = this.getToggleState.bind(this);
     }
 
-    setName(event) {
-        this.setState({
-            customer: {
-                name: event.target.value
-            }
-        })
+    getToggleState(showHeaders) {
+        return showHeaders ? 'off' : 'on'
+    }
+
+    getCustomerName(index) {
+        let activeCustomer = data.student[index]
+        if (activeCustomer)
+            return `Current Selection: ${data.student[index].name}`
+        else return `Cannot find a student with ID: ${index}`
+
     }
 
     render() {
@@ -34,18 +33,28 @@ class Setup extends Component {
                 <div className="site">
                     <Header />
                     <CustomerContext.Consumer>
-                        {({ customer, updateDetails }) => (
+                        {({ activeCustomer, showHeaders, toggleHeaders, changeCustomer }) => (
                             <main id="content" role="main" className="site-content">
                                 <div className="container">
-                                    <h2 className="heading--xxlarge--my-account heading--xxlarge">Register User</h2>
-                                    <form>
-                                        <label className="label" htmlFor="customer-name">Name</label>
-                                        <input id="customer-name" className="text-input" placeholder="Jane" type="text" value={this.state.customer.name} onChange={this.setName} />
-                                        <React.Fragment>
-                                            <h2 className="heading--xxlarge--my-account heading--xxlarge">{customer.name}'s Account</h2>
-                                            <button className="action--primary" type="button" onClick={() => { customer.name = this.state.customer.name }}>Create User</button>
-                                        </React.Fragment>
-                                    </form>
+                                    <h2 className="heading--xxlarge--my-account heading--xxlarge">Setup</h2>
+                                    <label htmlFor="customer" className="label">Active User</label>
+                                    <p className="label__hint">Enter the customer number</p>
+                                    <p className="label__hint">{this.getCustomerName(activeCustomer)}</p>
+                                    <input id="customer" type="text" placeholder="0" className="text-input" onChange={changeCustomer} />
+                                    <div className="checkbox__group">
+                                        <input
+                                            id="toggle-headers"
+                                            type="checkbox"
+                                            className="checkbox__input"
+                                            checked={showHeaders}
+                                            onClick={toggleHeaders} />
+                                        <label htmlFor="toggle-headers" className="checkbox__label">
+                                            Toggle Headers
+                                        </label>
+                                    </div>
+                                    <div className="action-group">
+                                        <Link to="page1" className="action--primary" style={{ marginTop: '30px' }}>Continue</Link>
+                                    </div>
                                 </div>
                             </main>
                         )}

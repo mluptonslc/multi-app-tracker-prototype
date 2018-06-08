@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
@@ -15,17 +14,45 @@ import { CustomerContext } from './context/CustomerContext';
 
 class App extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.changeCustomer = event => {
+            this.setState(
+                { activeCustomer: event.target.value }
+            )
+        }
+
+        this.toggleHeaders = event => {
+            this.setState({
+                showHeaders: event.target.checked
+            })
+        }
+
+        this.state = {
+            activeCustomer: 0,
+            showHeaders: true,
+            toggleHeaders: this.toggleHeaders,
+            changeCustomer: this.changeCustomer
+        }
+
+        this.toggleHeaders = this.toggleHeaders.bind(this);
+        this.changeCustomer = this.changeCustomer.bind(this);
+    }
+
     render() {
         return (
-            <BrowserRouter basename="/customer">
-                <Switch>
-                    <Route exact path="/page1" component={Home} />
-                    <Route exact path="/page2" component={ApplicationTracker} />
-                    <Route exact path="/page3" component={Application} />
-                    <Route exact path="/page4" component={Profile} />
-                    <Route exact path="/setup" component={Setup} />
-                </Switch>
-            </BrowserRouter>
+            <CustomerContext.Provider value={this.state}>
+                <BrowserRouter basename="/customer">
+                    <Switch>
+                        <Route exact path="/page1" component={Home} />
+                        <Route exact path="/page2" component={ApplicationTracker} />
+                        <Route exact path="/page3" component={Application} />
+                        <Route exact path="/page4" component={Profile} />
+                        <Route exact path="/setup" component={Setup} />
+                    </Switch>
+                </BrowserRouter>
+            </CustomerContext.Provider>
         );
     }
 }

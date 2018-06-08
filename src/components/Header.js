@@ -18,9 +18,9 @@ class Header extends Component {
             </div>
           </div>
         </div>
-        <div class="container">
-          <div class="feedback">
-            <p><span class="phase-tag">PROTOTYPE</span> We're always trying to improve our service – <a href="" target="_blank">your
+        <div className="container">
+          <div className="feedback">
+            <p><span className="phase-tag">PROTOTYPE</span> We're always trying to improve our service – <a href="" target="_blank">your
               feedback</a> helps us do this.</p>
           </div>
         </div>
