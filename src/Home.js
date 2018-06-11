@@ -86,33 +86,33 @@ class Home extends Component {
                     <h3 className="home-nav">
                       <Link to="/page2" className="home-nav-link action--secondary">{this.filterLink('Applications and Support', showHeaders)}</Link>
                     </h3>
-                    <p>Manage your applications and your support applications</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                   </li>
                   <li>
                     <h3 className="home-nav"><a>{this.filterLink('Start a new application', showHeaders)}</a></h3>
-                    <p>Begin a new student finance application to help fund your studies</p>
+                    <p>Sed do eiusmod tempor incididunt ut labore.</p>
                   </li>
                   <li>
                     <h3 className="home-nav"><a>{this.filterLink('Support an application', showHeaders)}</a></h3>
-                    <p>Provide details to support a student who is applying for student finance</p>
+                    <p>Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
                   </li>
                   <li>
                     <h3 className="home-nav"><a>{this.filterLink('Letters and emails', showHeaders)}</a></h3>
-                    <p>View all letters and emails that have been sent to you by the Student Loans Company</p>
+                    <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
                   </li>
                   <li>
                     <h3 className="home-nav">
                       <Link to="/page4">{this.filterLink('My Profile', showHeaders)}</Link>
                     </h3>
-                    <p>Update your personal details or change your password</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
                   </li>
                   <li>
                     <h3 className="home-nav"><a>{this.filterLink('Payments', showHeaders)}</a></h3>
-                    <p>Check when you'll next be paid or your past payments</p>
+                    <p>Dolore eu fugiat nulla pariatur.</p>
                   </li>
                   <li>
                     <h3 className="home-nav"><a>{this.filterLink('Finance', showHeaders)}</a></h3>
-                    <p>Update your bank details</p>
+                    <p>Excepteur sint occaecat cupidatat non proident.</p>
                   </li>
                 </ol>
               </div>

@@ -31,7 +31,7 @@ class App extends React.Component {
 
         this.state = {
             activeCustomer: 0,
-            showHeaders: true,
+            showHeaders: false,
             toggleHeaders: this.toggleHeaders,
             changeCustomer: this.changeCustomer
         }
